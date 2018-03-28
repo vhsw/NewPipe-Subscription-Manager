@@ -2,11 +2,11 @@
 Little script to import YouTube subscriptions into NewPipe app.
 
 # How to use script:
-First, you need to get the latest version of Python 3. You can download it here: https://www.python.org/downloads/
-Than follow installation instructions here: http://docs.python-guide.org/en/latest/starting/installation/
+First, you need to get the latest version of Python 3. You can download it [here](https://www.python.org/downloads/).
+Than follow installation [instructions](http://docs.python-guide.org/en/latest/starting/installation/)
 Finally you need to ran the script:
 
-NewPipeSubscriptions.py [-h] [xml_path] [db_path]
+`import_subscriptions.py [-h] [xml_path] [db_path]`
 
 Import subscriptions from subscription_manager.xml to NewPipe database
 
@@ -20,8 +20,8 @@ optional arguments:
   -h, --help  show help message and exit
  
 For example:
-./NewPipeSubscriptions.py ~/Downloads/subscription_manager.xml ~/Downloads/NewPipeData.zip 
+`./import_subscriptions.py ~/Downloads/subscription_manager.xml ~/Downloads/NewPipeData.zip`
 
-or in some cases:
+Or in some cases:
 
-python3 ./NewPipeSubscriptions.py ~/Downloads/subscription_manager.xml ~/Downloads/NewPipeData-20180328_202630.zip 
+`python3 ./import_subscriptions.py ~/Downloads/subscription_manager.xml ~/Downloads/NewPipeData.zip` 
