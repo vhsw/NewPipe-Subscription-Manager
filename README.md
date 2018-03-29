@@ -1,5 +1,5 @@
-# New Pipe Subscription Manager
-A little script to import YouTube subscriptions into NewPipe app.
+# NewPipe Subscription Manager
+NewPipe Subscription Manager is a little script to import YouTube subscriptions into NewPipe app.
 
 ## How to use script:
 First, you need to get the latest version of Python 3. You can download it [here](https://www.python.org/downloads/).
