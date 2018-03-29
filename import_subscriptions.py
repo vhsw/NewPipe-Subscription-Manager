@@ -3,7 +3,11 @@
 import argparse
 import sqlite3
 import zipfile
+import threading
+import urllib
+import time
 from pathlib import Path
+from typing import Dict, List, Any, Union
 from urllib import request
 from xml.dom import minidom
 
@@ -48,9 +52,9 @@ def update_db(conn, data):
 
 
 def resolve_data(url_list):
-    data = []
-    for num, url in enumerate(url_list):
-        print(f'\rloading subscriptions... {num+1}/{len(url_list)}', end='\r')
+    print(f'\rloading {len(url_list)} subscriptions...', end='\r')
+
+    def fetch_url(url, ):
         response = request.urlopen(url)
         xml_doc = minidom.parse(response)
         author = xml_doc.getElementsByTagName('author')[0]
@@ -59,6 +63,15 @@ def resolve_data(url_list):
         data.append(
             {'service_id': 0, 'url': uri, 'name': name, 'avatar_url': '', 'subscriber_count': 0,
              'description': ''})
+
+    data = []
+
+    threads = [threading.Thread(target=fetch_url, args=(url,)) for url in url_list]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+
     return data
 
 
